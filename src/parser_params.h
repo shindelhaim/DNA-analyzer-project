@@ -14,6 +14,7 @@ public:
 
 private:
     std::vector<std::string> m_params;
+    size_t m_size;
 };
 
 #endif //SRC_PARSER_PARAMS_H
