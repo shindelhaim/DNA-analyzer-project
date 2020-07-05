@@ -3,11 +3,11 @@
 
 #include <string>
 
-class i_reader
+class IReader
 {
 public:
     virtual std::string read() const = 0;
-    virtual ~i_reader(){};
+    virtual ~IReader(){};
 };
 
 #endif //DNA_TASK_IREADER_H
