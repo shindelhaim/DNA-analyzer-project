@@ -1,3 +1,4 @@
+#include <stdexcept>
 #include "command_factory.h"
 #include "new_command.h"
 
@@ -8,5 +9,5 @@ ICommand *CommandFactory::getCommand(const ParserParams& params)
         return new NewCommand(params);
     }
 
-    return NULL;
+    throw std::invalid_argument("COMMAND NOT FOUND");
 }
