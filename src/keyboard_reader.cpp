@@ -9,5 +9,5 @@
 void keyboard_reader::initInput()
 {
 
-    std::cin >> m_data;
+    getline(std::cin , m_data);
 }
