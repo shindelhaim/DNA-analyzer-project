@@ -1,4 +1,5 @@
 #include <iostream>
+#include "DB_DNA_sequence.h"
 #include "system_manager.h"
 #include "parser_params.h"
 #include "keyboard_reader.h"
@@ -7,6 +8,7 @@
 
 void system_manager::start()
 {
+    DataBaseDnaSequence dataBaseDnaSequence;
     keyboard_reader userInput;
     ParserParams params;
     const ICommand* pCommand;
