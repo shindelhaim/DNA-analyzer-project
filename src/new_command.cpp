@@ -16,18 +16,14 @@ NewCommand::NewCommand(const ParserParams &parameters) :CreationCommand(paramete
 
 void NewCommand::execute() const
 {
-    std::string name;
     if(3 == (*m_pParams).getSize())
     {
-        name = (*m_pParams)[2];
+        DataBaseDnaSequence::addNewDna(new DnaMetaData((*m_pParams)[1],(*m_pParams)[2].substr(1)));
     }
-    else
+    if(2 == (*m_pParams).getSize())
     {
-        name = "seq" +
+        DataBaseDnaSequence::addNewDna(new DnaMetaData((*m_pParams)[1]));
     }
-
-    DataBaseDnaSequence::addNewDna(new DnaMetaData(name,NEW,(*m_pParams)[1]);
-
 }
 
 
