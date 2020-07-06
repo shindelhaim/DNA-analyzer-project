@@ -2,7 +2,8 @@
 #define SRC_NEW_COMMAND_H
 
 #include "creation_command.h"
-#include "parser_params.h"
+
+class ParserParams;
 
 class NewCommand: public CreationCommand
 {
