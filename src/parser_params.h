@@ -11,6 +11,7 @@ class ParserParams
 public:
     void parseInput(const IReader& inputToParse, char delimiter = ' ');
     const std::string& operator[](size_t index)const;
+    size_t getSize() const{return m_size;}
 
 private:
     std::vector<std::string> m_params;
