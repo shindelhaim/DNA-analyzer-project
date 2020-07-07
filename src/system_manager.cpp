@@ -8,7 +8,6 @@
 
 void system_manager::start()
 {
-    DataBaseDnaSequence dataBaseDnaSequence;
     keyboard_reader userInput;
     ParserParams params;
     const ICommand* pCommand;
