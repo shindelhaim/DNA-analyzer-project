@@ -14,22 +14,21 @@ NewCommand::NewCommand(const ParserParams &parameters) :CreationCommand(paramete
 }
 
 
-void NewCommand::execute() const
+void NewCommand::execute(DataBaseDnaSequence* dataBase,IWriter* output) const
 {
     DnaMetaData* dnaMetaData;
     if(3 == (*m_pParams).getSize())
     {
         dnaMetaData = new DnaMetaData((*m_pParams)[1],(*m_pParams)[2].substr(1));
-        DataBaseDnaSequence::addNewDna(dnaMetaData);
+        dataBase->addNewDna(dnaMetaData);
     }
     if(2 == (*m_pParams).getSize())
     {
         dnaMetaData = new DnaMetaData((*m_pParams)[1]);
-        DataBaseDnaSequence::addNewDna(dnaMetaData);
+        dataBase->addNewDna(dnaMetaData);
     }
 
-    ScreenWriter output;
-    output.write((dnaMetaData->getDnaData()).c_str());
+    output->write((dnaMetaData->getDnaData()).c_str());
 }
 
 

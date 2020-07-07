@@ -4,12 +4,14 @@
 #include "creation_command.h"
 
 class ParserParams;
+class IWriter;
+class DataBaseDnaSequence;
 
 class NewCommand: public CreationCommand
 {
 public:
     NewCommand(const ParserParams& parameters);
-    void execute()const;
+    void execute(DataBaseDnaSequence* dataBase,IWriter* output)const;
 
 private:
     bool is_valid();

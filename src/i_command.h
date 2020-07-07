@@ -2,12 +2,14 @@
 #define SRC_I_COMMAND_H
 
 #include "parser_params.h"
+class DataBaseDnaSequence;
+class IWriter;
 
 class ICommand
 {
 public:
     ICommand(const ParserParams& params);
-    virtual void execute()const = 0;
+    virtual void execute(DataBaseDnaSequence* dataBase,IWriter* output)const = 0;
     virtual ~ICommand(){};
 
 protected:

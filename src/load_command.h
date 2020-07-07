@@ -7,7 +7,7 @@ class LoadCommand: public CreationCommand
 {
 public:
     LoadCommand(const ParserParams& parameters);
-    void execute()const;
+    void execute(DataBaseDnaSequence* dataBase,IWriter* output)const;
 
 private:
     bool is_valid();
