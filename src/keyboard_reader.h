@@ -4,7 +4,7 @@
 #include <string>
 #include "Reader.h"
 
-class keyboard_reader : public Reader
+class KeyboardReader : public Reader
 {
 
 public:

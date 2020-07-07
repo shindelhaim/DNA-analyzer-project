@@ -6,7 +6,7 @@
 #include "keyboard_reader.h"
 
 
-void keyboard_reader::initInput()
+void KeyboardReader::initInput()
 {
 
     getline(std::cin , m_data);
