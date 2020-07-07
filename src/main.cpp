@@ -1,6 +1,12 @@
 #include <iostream>
 #include "system_manager.h"
+#include "screen_writer.h"
+#include "keyboard_reader.h"
+
 int main() {
-    system_manager::start();
+    SystemManager manager;
+    KeyboardReader input;
+    ScreenWriter output;
+    manager.start(&input,&output);
     return 0;
 }
