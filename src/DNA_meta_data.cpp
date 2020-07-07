@@ -26,15 +26,6 @@ DnaMetaData::DnaMetaData(const DnaSequence& dnaSequence, const std::string& name
 std::string DnaMetaData::getDnaData() const
 {
     std::stringstream out;
-    out << "[" << m_id << "] " << m_name <<": ";
-    size_t lengthDnaSeq = m_dnaSequence.length();
-    if( lengthDnaSeq > 40)
-    {
-        out << m_dnaSequence.slice(0,32) << "..." <<m_dnaSequence.slice(lengthDnaSeq-3,lengthDnaSeq);
-    }
-    else
-    {
-        out << m_dnaSequence;
-    }
+    out << "[" << m_id << "] " << m_name <<": "<< m_dnaSequence;
     return out.str();
 }
