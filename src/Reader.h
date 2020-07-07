@@ -3,7 +3,7 @@
 
 #include "IReader.h"
 
-class reader: public IReader
+class Reader: public IReader
 {
 public:
     std::string read() const;
