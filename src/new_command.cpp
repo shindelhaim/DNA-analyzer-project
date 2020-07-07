@@ -36,5 +36,5 @@ void NewCommand::execute() const
 
 bool NewCommand::is_valid()
 {
-    return 2 == (*m_pParams).getSize() || 3 == (*m_pParams).getSize();
+    return 2 == (*m_pParams).getSize() || (3 == (*m_pParams).getSize() && (*m_pParams)[2][0] == '@');
 }
