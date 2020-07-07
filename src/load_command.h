@@ -2,6 +2,7 @@
 #define SRC_LOAD_COMMAND_H
 
 #include "creation_command.h"
+class DnaMetaData;
 
 class LoadCommand: public CreationCommand
 {
@@ -11,6 +12,7 @@ public:
 
 private:
     bool is_valid();
+    static std::string getDnaMetaDataAsStr(const DnaMetaData* dnaMetaData);
 };
 
 
