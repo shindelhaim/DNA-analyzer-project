@@ -8,9 +8,10 @@ class FileReader : public Reader
 {
 public:
     FileReader(const std::string& nameFile);
-
+    void initInput();
 private:
-    static std::string readFromFile(const std::string& nameFile);
+
+    std::string m_nameFile;
 };
 
 
