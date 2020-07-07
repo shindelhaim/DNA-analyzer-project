@@ -19,7 +19,7 @@ public:
     std::string getDnaData()const;
     const std::string& getName()const{return m_name;}
     const size_t getId()const{return m_id;}
-    const DnaSequence& getDnaSequence(){return m_dnaSequence;}
+    const DnaSequence& getDnaSequence()const{return m_dnaSequence;}
 private:
     size_t m_id;
     std::string m_name;
