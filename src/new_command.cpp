@@ -1,9 +1,9 @@
 #include <stdexcept>
 #include "new_command.h"
 #include "DB_DNA_sequence.h"
-#include "Dna_sequence.h"
 #include "parser_params.h"
 #include "DNA_meta_data.h"
+#include "screen_writer.h"
 
 NewCommand::NewCommand(const ParserParams &parameters) :CreationCommand(parameters)
 {
@@ -16,14 +16,20 @@ NewCommand::NewCommand(const ParserParams &parameters) :CreationCommand(paramete
 
 void NewCommand::execute() const
 {
+    DnaMetaData* dnaMetaData;
     if(3 == (*m_pParams).getSize())
     {
-        DataBaseDnaSequence::addNewDna(new DnaMetaData((*m_pParams)[1],(*m_pParams)[2].substr(1)));
+        dnaMetaData = new DnaMetaData((*m_pParams)[1],(*m_pParams)[2].substr(1));
+        DataBaseDnaSequence::addNewDna(dnaMetaData);
     }
     if(2 == (*m_pParams).getSize())
     {
-        DataBaseDnaSequence::addNewDna(new DnaMetaData((*m_pParams)[1]));
+        dnaMetaData = new DnaMetaData((*m_pParams)[1]);
+        DataBaseDnaSequence::addNewDna(dnaMetaData);
     }
+
+    ScreenWriter output;
+    output.write((dnaMetaData->getDnaData()).c_str());
 }
 
 

@@ -6,9 +6,8 @@ std::map<std::string,size_t> DataBaseDnaSequence::m_hashTableByName = std::map<s
 
 void DataBaseDnaSequence::addNewDna(DnaMetaData *dna)
 {
-    static size_t s_id = 0;
-    m_hashTableByID.insert(std::pair<size_t,DnaMetaData*>(s_id,dna));
-    m_hashTableByName.insert(std::pair<std::string,size_t>(dna->getName(),s_id));
-    ++s_id;
+    m_hashTableByID.insert(std::pair<size_t,DnaMetaData*>(dna->getId(),dna));
+    m_hashTableByName.insert(std::pair<std::string,size_t>(dna->getName(),dna->getId()));
+
 }
 

@@ -286,7 +286,7 @@ DnaSequence::DnaSequence(size_t length)
 
 std::ostream& operator<<(std::ostream& out, const DnaSequence& dnaSeq)
 {
-    out << "DNA: " << dnaSeq.getDnaSequenceAsStr();
+    out << dnaSeq.getDnaSequenceAsStr();
     return out;
 }
 
