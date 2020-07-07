@@ -1,7 +1,7 @@
 #include "system_manager.h"
 #include "terminal.h"
 
-void SystemManager::start(const IReader& input, const IWriter& output)
+void SystemManager::start(IReader* input, IWriter* output)
 {
-    Terminal::start(input,output);
+    Terminal::start(&m_dataBaseDnaSequence,input,output);
 }

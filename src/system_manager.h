@@ -10,10 +10,10 @@ class IWriter;
 class SystemManager
 {
 public:
-    static void start(const IReader& input, const IWriter& output);
+    void start(IReader* input, IWriter* output);
 
 private:
-    DataBaseDnaSequence dataBaseDnaSequence;
+    DataBaseDnaSequence m_dataBaseDnaSequence;
 };
 
 
