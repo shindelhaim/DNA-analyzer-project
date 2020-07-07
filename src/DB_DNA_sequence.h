@@ -10,10 +10,10 @@ class DnaMetaData;
 class DataBaseDnaSequence
 {
 public:
-    static void addNewDna(DnaMetaData* dna);
+    void addNewDna(DnaMetaData* dna);
 private:
-    static std::map<size_t,DnaMetaData*> m_hashTableByID;
-    static std::map<std::string,size_t> m_hashTableByName;
+    std::map<size_t,DnaMetaData*> m_hashTableByID;
+    std::map<std::string,size_t> m_hashTableByName;
 };
 
 
