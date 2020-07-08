@@ -8,20 +8,30 @@ void Terminal::start(DataBaseDnaSequence* dataBase ,IReader* input, IWriter* out
 {
 
     ParserParams params;
-    const ICommand* pCommand;
+    const ICommand* pCommand = NULL;
     while(1)
     {
-
-        std::cout << "cmd >>> ";
-        input->initInput();
-        params.parseInput(*input);
-        if("quit" == params[0])
+        try
         {
-            break;
-        }
-        pCommand = CommandFactory::getCommand(params);
-        pCommand -> execute(dataBase,output);
+            std::cout << "cmd >>> ";
+            input->initInput();
+            params.parseInput(*input);
+            if("quit" == params[0])
+            {
+                break;
+            }
+            pCommand = CommandFactory::getCommand(params);
+            pCommand -> execute(dataBase,output);
 
-        delete pCommand;
+            delete pCommand;
+            pCommand = NULL;
+        }
+        catch (std::invalid_argument e)
+        {
+            std::cout << e.what() << std::endl;
+            delete pCommand;
+            pCommand = NULL;
+        }
+
     }
 }
