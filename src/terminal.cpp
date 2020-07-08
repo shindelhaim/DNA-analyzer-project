@@ -26,9 +26,15 @@ void Terminal::start(DataBaseDnaSequence* dataBase ,IReader* input, IWriter* out
             delete pCommand;
             pCommand = NULL;
         }
-        catch (std::invalid_argument e)
+        catch (const std::invalid_argument& e)
         {
-            std::cout << e.what() << std::endl;
+            std::cout << "ERROR: "<< e.what() << std::endl;
+            delete pCommand;
+            pCommand = NULL;
+        }
+        catch (const std::runtime_error& e)
+        {
+            std::cout << "ERROR: " << e.what() << std::endl;
             delete pCommand;
             pCommand = NULL;
         }
