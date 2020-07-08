@@ -3,7 +3,6 @@
 #include "DB_DNA_sequence.h"
 #include "parser_params.h"
 #include "DNA_meta_data.h"
-#include "screen_writer.h"
 
 NewCommand::NewCommand(const ParserParams &parameters) :CreationCommand(parameters)
 {
