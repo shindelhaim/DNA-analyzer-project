@@ -21,20 +21,19 @@ void LoadCommand::execute(DataBaseDnaSequence* dataBase,IWriter* output) const
     DnaMetaData* dnaMetaData;
     FileReader fileReader((*m_pParams)[1]);
     fileReader.initInput();
+    std::string tempName;
     if(3 == (*m_pParams).getSize())
     {
-
-        dnaMetaData = new DnaMetaData(fileReader.read(),(*m_pParams)[2].substr(1));
-        dataBase->addNewDna(dnaMetaData);
+        tempName = (*m_pParams)[2].substr(1);
     }
     if(2 == (*m_pParams).getSize())
     {
         size_t pointIndex = (*m_pParams)[1].find('.');
-        dnaMetaData = new DnaMetaData(fileReader.read(),(*m_pParams)[1].substr(0,pointIndex));
-        dataBase->addNewDna(dnaMetaData);
+        tempName = (*m_pParams)[1].substr(0,pointIndex);
     }
 
-
+    dnaMetaData = new DnaMetaData(fileReader.read(),getValidName(tempName,dataBase));
+    dataBase->addNewDna(dnaMetaData);
 
     output->write(getDnaMetaDataAsStr(dnaMetaData).c_str());
 }
