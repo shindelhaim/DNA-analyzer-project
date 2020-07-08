@@ -3,7 +3,7 @@
 
 
 DnaMetaData::DnaMetaData(const DnaSequence& dnaSequence, const std::string& name )
-:m_dnaSequence(dnaSequence),m_status(NEW),m_countCopies(1)
+:m_dnaSequence(dnaSequence),m_status(NEW),m_countCopies(1),m_name(name)
 {
     static size_t s_countId = 0;
 
