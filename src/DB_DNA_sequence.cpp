@@ -8,9 +8,9 @@ void DataBaseDnaSequence::addNewDna(DnaMetaData *dna)
 
 }
 
-DnaMetaData &DataBaseDnaSequence::findDnaById(size_t id)
+DnaMetaData* DataBaseDnaSequence::findDnaById(size_t id)
 {
-    return *(m_hashTableByID.find(id)->second);
+    return m_hashTableByID.find(id)->second;
 }
 
 DnaMetaData &DataBaseDnaSequence::findDnaByName(std::string name)

@@ -11,7 +11,7 @@ class DataBaseDnaSequence
 {
 public:
     void addNewDna(DnaMetaData* dna);
-    DnaMetaData& findDnaById(size_t id);
+    DnaMetaData* findDnaById(size_t id);
     DnaMetaData& findDnaByName(std::string name);
 private:
     std::map<size_t,DnaMetaData*> m_hashTableByID;
