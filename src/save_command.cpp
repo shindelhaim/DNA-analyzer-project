@@ -32,6 +32,8 @@ void SaveCommand::execute(DataBaseDnaSequence* dataBase,IWriter* output) const
         pDna = dataBase->findDnaById(id);
     }
 
+    pDna -> setStatus(UP_TO_DATA);
+
     if((*m_pParams).getSize() == 3)
     {
         FileWriter fileToSave((*m_pParams)[2]);
