@@ -1,3 +1,4 @@
+#include <stdexcept>
 #include "DB_DNA_sequence.h"
 #include "DNA_meta_data.h"
 
@@ -10,12 +11,33 @@ void DataBaseDnaSequence::addNewDna(DnaMetaData *dna)
 
 DnaMetaData* DataBaseDnaSequence::findDnaById(size_t id)
 {
-    return m_hashTableByID.find(id)->second;
+    HashById::iterator iterFound = m_hashTableByID.find(id);
+    if(iterFound == m_hashTableByID.end())
+    {
+        throw std::invalid_argument("ID NOT FOUND IN DATABASE");
+    }
+    return iterFound->second;
 }
 
 DnaMetaData* DataBaseDnaSequence::findDnaByName(std::string name)
 {
-    size_t id = m_hashTableByName.find(name)->second;
+    HashByName ::iterator iterFound = m_hashTableByName.find(name);
+    if(iterFound == m_hashTableByName.end())
+    {
+        throw std::invalid_argument("NAME NOT FOUND IN DATABASE");
+    }
+    size_t id = iterFound->second;
     return findDnaById(id);
+}
+
+bool DataBaseDnaSequence::isNameExist(std::string name) {
+    try {
+        findDnaByName(name);
+    }
+    catch (const std::invalid_argument& e)
+    {
+        return false;
+    }
+    return true;
 }
 

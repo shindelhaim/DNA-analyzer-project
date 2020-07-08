@@ -13,9 +13,14 @@ public:
     void addNewDna(DnaMetaData* dna);
     DnaMetaData* findDnaById(size_t id);
     DnaMetaData* findDnaByName(std::string name);
+    bool isNameExist(std::string name);
+
 private:
-    std::map<size_t,DnaMetaData*> m_hashTableByID;
-    std::map<std::string,size_t> m_hashTableByName;
+    typedef std::map<size_t,DnaMetaData*> HashById ;
+    typedef std::map<std::string,size_t> HashByName ;
+
+    HashById m_hashTableByID;
+    HashByName m_hashTableByName;
 };
 
 
