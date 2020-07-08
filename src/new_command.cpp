@@ -27,7 +27,8 @@ void NewCommand::execute(DataBaseDnaSequence* dataBase,IWriter* output) const
     if(2 == (*m_pParams).getSize())
     {
         std::stringstream out;
-        out << "seq" + s_countDefault;
+        out << "seq" << s_countDefault;
+        ++s_countDefault;
         tempName = out.str();
     }
     dnaMetaData = new DnaMetaData((*m_pParams)[1],getValidName(tempName,dataBase));

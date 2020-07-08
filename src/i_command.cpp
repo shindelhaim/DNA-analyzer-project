@@ -14,9 +14,9 @@ std::string ICommand::getValidName(const std::string &name, DataBaseDnaSequence 
 
     while(dataBase->isNameExist(tempName))
     {
-        DnaMetaData existDna = *(dataBase->findDnaByName(tempName));
+        DnaMetaData* existDna = dataBase->findDnaByName(tempName);
         std::stringstream out;
-        out << existDna.getCountCopies();
+        out << existDna->getCountCopies();
         tempName = tempName + "_" + out.str();
     }
 
