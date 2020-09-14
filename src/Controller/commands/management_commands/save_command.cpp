@@ -7,7 +7,7 @@
 #include "../../../Model/DNA_meta_data.h"
 #include "../../../View/file_writer.h"
 
-void SaveCommand::initParams(const ParserParams &parameters) :ManagementCommands(parameters)
+void SaveCommand::initParams(const ParserParams &parameters)
 {
     m_pParams = &parameters;
 
