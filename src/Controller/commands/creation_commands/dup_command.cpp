@@ -6,12 +6,15 @@
 #include "../../parser_params.h"
 #include "../../../Model/DNA_meta_data.h"
 
-DupCommand::DupCommand(const ParserParams &parameters) :CreationCommand(parameters)
+void DupCommand::initParams(const ParserParams &parameters)
 {
+    m_pParams = &parameters;
+
     if(!is_valid())
     {
         throw std::invalid_argument("IVALID PARAMETERS");
     }
+
 }
 
 

@@ -7,8 +7,10 @@
 #include "../../../View/screen_writer.h"
 #include "../../../View/file_reader.h"
 
-LoadCommand::LoadCommand(const ParserParams &parameters) :CreationCommand(parameters)
+void LoadCommand::initParams(const ParserParams &parameters)
 {
+    m_pParams = &parameters;
+
     if(!is_valid())
     {
         throw std::invalid_argument("IVALID PARAMETERS");

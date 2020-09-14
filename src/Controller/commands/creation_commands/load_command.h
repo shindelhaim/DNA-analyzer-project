@@ -7,7 +7,7 @@ class DnaMetaData;
 class LoadCommand: public CreationCommand
 {
 public:
-    LoadCommand(const ParserParams& parameters);
+    /* virtual */ void initParams(const ParserParams& parameters);
     void execute(DataBaseDnaSequence* dataBase,IWriter* output)const;
 
 private:

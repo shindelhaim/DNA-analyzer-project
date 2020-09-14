@@ -10,7 +10,7 @@ class DataBaseDnaSequence;
 class SaveCommand: public ManagementCommands
 {
 public:
-    SaveCommand(const ParserParams& parameters);
+    /* virtual */ void initParams(const ParserParams& parameters);
     /* virtual */void execute(DataBaseDnaSequence* dataBase,IWriter* output)const;
 
 private:

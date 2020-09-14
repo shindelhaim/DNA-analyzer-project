@@ -5,12 +5,15 @@
 #include "../../parser_params.h"
 #include "../../../Model/DNA_meta_data.h"
 
-NewCommand::NewCommand(const ParserParams &parameters) :CreationCommand(parameters)
+void NewCommand::initParams(const ParserParams &parameters)
 {
+    m_pParams = &parameters;
+
     if(!is_valid())
     {
         throw std::invalid_argument("IVALID PARAMETERS");
     }
+
 }
 
 

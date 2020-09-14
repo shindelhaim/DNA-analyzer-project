@@ -10,7 +10,7 @@ class DataBaseDnaSequence;
 class NewCommand: public CreationCommand
 {
 public:
-    NewCommand(const ParserParams& parameters);
+    /* virtual */ void initParams(const ParserParams& parameters);
     void execute(DataBaseDnaSequence* dataBase,IWriter* output)const;
 
 private:

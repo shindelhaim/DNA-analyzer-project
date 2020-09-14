@@ -6,7 +6,7 @@
 class ManagementCommands: public ICommand
 {
 public:
-    ManagementCommands(const ParserParams& params);
+    /* virtual */ void initParams(const ParserParams& params) = 0;
 };
 
 

@@ -7,9 +7,11 @@
 #include "../../../Model/DNA_meta_data.h"
 #include "../../../View/file_writer.h"
 
-SaveCommand::SaveCommand(const ParserParams &parameters) :ManagementCommands(parameters)
+void SaveCommand::initParams(const ParserParams &parameters) :ManagementCommands(parameters)
 {
-    if(!is_valid())
+    m_pParams = &parameters;
+
+    if (!is_valid())
     {
         throw std::invalid_argument("IVALID PARAMETERS");
     }

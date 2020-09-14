@@ -8,7 +8,7 @@ class IWriter;
 class ICommand
 {
 public:
-    ICommand(const ParserParams& params);
+    virtual void initParams(const ParserParams& params) = 0;
     virtual void execute(DataBaseDnaSequence* dataBase,IWriter* output)const = 0;
     virtual ~ICommand(){};
 

@@ -3,11 +3,6 @@
 #include "../../Model/DB_DNA_sequence.h"
 #include "../../Model/DNA_meta_data.h"
 
-ICommand::ICommand(const ParserParams &params)
-{
-    m_pParams = &params;
-}
-
 std::string ICommand::getValidName(const std::string &name, DataBaseDnaSequence *dataBase)
 {
     std::string tempName = name;

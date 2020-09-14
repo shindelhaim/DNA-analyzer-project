@@ -5,7 +5,7 @@
 class CreationCommand: public ICommand
 {
 public:
-    CreationCommand(const ParserParams& params);
+    /* virtual */ void initParams(const ParserParams& params) = 0;
 };
 
 #endif //SRC_CREATION_COMMAND_H
