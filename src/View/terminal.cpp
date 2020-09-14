@@ -10,7 +10,8 @@ void Terminal::run(DataBaseDnaSequence* dataBase ,IReader* input, IWriter* outpu
 
     ParserParams params;
     const ICommand* pCommand = NULL;
-    while(1)
+
+    while (true)
     {
         try
         {
@@ -24,20 +25,15 @@ void Terminal::run(DataBaseDnaSequence* dataBase ,IReader* input, IWriter* outpu
             pCommand = CommandFactory::getCommand(params);
             pCommand -> execute(dataBase,output);
 
-            delete pCommand;
-            pCommand = NULL;
+
         }
         catch (const std::invalid_argument& e)
         {
             std::cout << "ERROR: "<< e.what() << std::endl;
-            delete pCommand;
-            pCommand = NULL;
         }
         catch (const std::runtime_error& e)
         {
             std::cout << "ERROR: " << e.what() << std::endl;
-            delete pCommand;
-            pCommand = NULL;
         }
 
     }
