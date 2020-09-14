@@ -1,11 +1,11 @@
 #include <iostream>
 #include "terminal.h"
-#include "parser_params.h"
+#include "../Controller/parser_params.h"
 #include "../View/keyboard_reader.h"
 #include "../Controller/commands/i_command.h"
 #include "../Controller/commands/command_factory.h"
 
-void Terminal::start(DataBaseDnaSequence* dataBase ,IReader* input, IWriter* output)
+void Terminal::run(DataBaseDnaSequence* dataBase ,IReader* input, IWriter* output)
 {
 
     ParserParams params;
@@ -15,7 +15,7 @@ void Terminal::start(DataBaseDnaSequence* dataBase ,IReader* input, IWriter* out
         try
         {
             std::cout << "cmd >>> ";
-            input->initInput();
+            input -> initInput();
             params.parseInput(*input);
             if("quit" == params[0])
             {

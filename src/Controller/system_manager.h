@@ -6,11 +6,12 @@
 
 class IReader;
 class IWriter;
+class UI;
 
 class SystemManager
 {
 public:
-    void start(IReader* input, IWriter* output);
+    void start(UI* user_interface, IReader* input, IWriter* output);
 
 private:
     DataBaseDnaSequence m_dataBaseDnaSequence;

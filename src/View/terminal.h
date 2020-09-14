@@ -1,14 +1,16 @@
 #ifndef SRC_TERMINAL_H
 #define SRC_TERMINAL_H
 
+#include "user_interface.h"
+
 class IReader;
 class IWriter;
 class DataBaseDnaSequence;
 
-class Terminal
+class Terminal : public UI
 {
 public:
-    static void start(DataBaseDnaSequence* dataBaseDnaSequence, IReader* input, IWriter* output);
+    void run(DataBaseDnaSequence* dataBaseDnaSequence, IReader* input, IWriter* output);
 };
 
 
