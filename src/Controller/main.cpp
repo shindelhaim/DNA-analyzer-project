@@ -9,6 +9,8 @@ int main() {
     ScreenWriter output;
     Terminal terminal;
     SystemManager manager;
+
     manager.start(&terminal, &input, &output);
+
     return 0;
 }
