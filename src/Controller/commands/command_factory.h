@@ -3,7 +3,7 @@
 
 #include <string>
 #include "i_command.h"
-#include "parser_params.h"
+#include "../parser_params.h"
 
 class CommandFactory
 {

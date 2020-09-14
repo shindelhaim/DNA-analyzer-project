@@ -2,7 +2,7 @@
 #define SRC_DNA_META_DATA_H
 
 #include <string>
-#include "Dna_sequence.h"
+#include "DNA_sequence.h"
 
 
 enum Status

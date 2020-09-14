@@ -1,6 +1,6 @@
 #include <stdexcept>
 #include <fstream>
-#include "FileReader.h"
+#include "file_reader.h"
 
 FileReader::FileReader(const std::string& nameFile):m_nameFile(nameFile)
 {

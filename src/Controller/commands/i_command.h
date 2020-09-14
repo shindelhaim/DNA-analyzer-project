@@ -1,7 +1,7 @@
 #ifndef SRC_I_COMMAND_H
 #define SRC_I_COMMAND_H
 
-#include "parser_params.h"
+#include "../parser_params.h"
 class DataBaseDnaSequence;
 class IWriter;
 

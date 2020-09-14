@@ -4,7 +4,7 @@
 #include <iostream>
 #include <algorithm>
 #include <list>
-#include "Dna_sequence.h"
+#include "DNA_sequence.h"
 
 char DnaSequence::NucleotideAsChar::operator=(char nucleotide)
 {

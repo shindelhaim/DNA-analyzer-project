@@ -2,7 +2,7 @@
 #define DNA_TASK_FILEREADER_H
 
 #include <string>
-#include "Reader.h"
+#include "reader.h"
 
 class FileReader : public Reader
 {

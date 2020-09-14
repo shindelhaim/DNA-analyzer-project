@@ -2,7 +2,7 @@
 #define DNA_TASK_KEYBOARDREADER_H
 
 #include <string>
-#include "Reader.h"
+#include "reader.h"
 
 class KeyboardReader : public Reader
 {

@@ -1,11 +1,11 @@
 #include "load_command.h"
 #include <stdexcept>
 #include <sstream>
-#include "DB_DNA_sequence.h"
-#include "parser_params.h"
-#include "DNA_meta_data.h"
-#include "screen_writer.h"
-#include "FileReader.h"
+#include "../../../Model/DB_DNA_sequence.h"
+#include "../../parser_params.h"
+#include "../../../Model/DNA_meta_data.h"
+#include "../../../View/screen_writer.h"
+#include "../../../View/file_reader.h"
 
 LoadCommand::LoadCommand(const ParserParams &parameters) :CreationCommand(parameters)
 {

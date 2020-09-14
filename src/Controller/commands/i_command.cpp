@@ -1,7 +1,7 @@
 #include <sstream>
 #include "i_command.h"
-#include "DB_DNA_sequence.h"
-#include "DNA_meta_data.h"
+#include "../../Model/DB_DNA_sequence.h"
+#include "../../Model/DNA_meta_data.h"
 
 ICommand::ICommand(const ParserParams &params)
 {

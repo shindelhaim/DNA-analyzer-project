@@ -1,9 +1,9 @@
 #include <stdexcept>
 #include <sstream>
 #include "new_command.h"
-#include "DB_DNA_sequence.h"
-#include "parser_params.h"
-#include "DNA_meta_data.h"
+#include "../../../Model/DB_DNA_sequence.h"
+#include "../../parser_params.h"
+#include "../../../Model/DNA_meta_data.h"
 
 NewCommand::NewCommand(const ParserParams &parameters) :CreationCommand(parameters)
 {

@@ -2,10 +2,10 @@
 #include "sstream"
 #include <cstdlib>
 #include "save_command.h"
-#include "DB_DNA_sequence.h"
-#include "parser_params.h"
-#include "DNA_meta_data.h"
-#include "file_writer.h"
+#include "../../../Model/DB_DNA_sequence.h"
+#include "../../parser_params.h"
+#include "../../../Model/DNA_meta_data.h"
+#include "../../../View/file_writer.h"
 
 SaveCommand::SaveCommand(const ParserParams &parameters) :ManagementCommands(parameters)
 {

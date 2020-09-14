@@ -2,7 +2,7 @@
 #define SRC_SYSTEM_MANAGER_H
 
 
-#include "DB_DNA_sequence.h"
+#include "../Model/DB_DNA_sequence.h"
 
 class IReader;
 class IWriter;

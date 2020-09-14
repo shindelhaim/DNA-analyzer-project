@@ -2,7 +2,7 @@
 #include <stdio.h>
 #include <iostream>
 #include "parser_params.h"
-#include "IReader.h"
+#include "../View/i_reader.h"
 
 
 void ParserParams::parseInput(const IReader& inputToParse, char delimiter)

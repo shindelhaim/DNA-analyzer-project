@@ -1,7 +1,7 @@
 #ifndef DNA_TASK_READER_H
 #define DNA_TASK_READER_H
 
-#include "IReader.h"
+#include "i_reader.h"
 
 class Reader: public IReader
 {

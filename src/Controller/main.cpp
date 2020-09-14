@@ -1,7 +1,7 @@
 #include <iostream>
 #include "system_manager.h"
-#include "screen_writer.h"
-#include "keyboard_reader.h"
+#include "../View/screen_writer.h"
+#include "../View/keyboard_reader.h"
 
 int main() {
     SystemManager manager;
