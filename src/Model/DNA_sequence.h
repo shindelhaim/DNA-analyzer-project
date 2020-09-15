@@ -33,8 +33,8 @@ public:
     Nucleotide& operator[](size_t index);
 
     friend std::ostream& operator<<(std::ostream& out, const DnaSequence& dna);
-    friend bool operator==(const DnaSequence& dnaSeq1,const DnaSequence& dnaSeq2);
-    friend bool operator!=(const DnaSequence& dnaSeq1,const DnaSequence& dnaSeq2);
+    friend bool operator==(const DnaSequence& dnaSeq1, const DnaSequence& dnaSeq2);
+    friend bool operator!=(const DnaSequence& dnaSeq1, const DnaSequence& dnaSeq2);
 
     size_t length() const ;
     DnaSequence pairing() const;
