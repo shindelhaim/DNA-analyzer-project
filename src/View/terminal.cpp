@@ -31,6 +31,10 @@ void Terminal::run(DataBaseDnaSequence* dataBase ,IReader* input, IWriter* outpu
         {
             std::cout << "ERROR: "<< e.what() << std::endl;
         }
+        catch (const std::out_of_range& e)
+        {
+            std::cout << "ERROR: "<< e.what() << std::endl;
+        }
         catch (const std::runtime_error& e)
         {
             std::cout << "ERROR: " << e.what() << std::endl;
