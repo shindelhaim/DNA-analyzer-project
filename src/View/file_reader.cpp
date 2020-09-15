@@ -14,7 +14,7 @@ void FileReader::initInput()
     fileToRead.open(m_nameFile.c_str());
     if(!fileToRead.is_open())
     {
-        throw std::runtime_error("it can't to open the file");
+        throw std::runtime_error("FAILED TO OPEN FILE");
     }
     getline(fileToRead,dnaSeq);
     fileToRead.close();
