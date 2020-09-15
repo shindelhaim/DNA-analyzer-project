@@ -54,5 +54,5 @@ void SaveCommand::execute(DataBaseDnaSequence* dataBase,IWriter* output) const
 
 bool SaveCommand::is_valid()
 {
-    return (2 == (*m_pParams).getSize() || 3 == (*m_pParams).getSize()) && ((*m_pParams)[1][0] == '@'|| (*m_pParams)[1][0] == '#') ;
+    return (2 == (*m_pParams).getSize() || 3 == (*m_pParams).getSize()) && ((*m_pParams)[1][0] == '@'|| (((*m_pParams)[1][0] == '#') && (((*m_pParams)[1]).substr(1).find_first_not_of("0123456789") == std::string::npos)));
 }
