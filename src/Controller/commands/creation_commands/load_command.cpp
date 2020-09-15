@@ -21,7 +21,8 @@ void LoadCommand::initParams(const ParserParams &parameters)
 void LoadCommand::execute(DataBaseDnaSequence* dataBase,IWriter* output) const
 {
     DnaMetaData* dnaMetaData;
-    FileReader fileReader((*m_pParams)[1]);
+    std::string nameFolder = "../Model/dna_sequence_files/load_dna/" + (*m_pParams)[1];
+    FileReader fileReader(nameFolder);
     fileReader.initInput();
     std::string tempName;
     if(3 == (*m_pParams).getSize())
@@ -30,7 +31,7 @@ void LoadCommand::execute(DataBaseDnaSequence* dataBase,IWriter* output) const
     }
     if(2 == (*m_pParams).getSize())
     {
-        size_t pointIndex = (*m_pParams)[1].find('.');
+        size_t pointIndex = (*m_pParams)[1].find_last_of('.');
         tempName = (*m_pParams)[1].substr(0,pointIndex);
     }
 

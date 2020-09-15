@@ -36,17 +36,18 @@ void SaveCommand::execute(DataBaseDnaSequence* dataBase,IWriter* output) const
 
     pDna -> setStatus(UP_TO_DATA);
 
+    std::string nameFolder;
     if((*m_pParams).getSize() == 3)
     {
-        FileWriter fileToSave((*m_pParams)[2]);
-        fileToSave.write(pDna->getDnaData().c_str());
+        nameFolder = (*m_pParams)[2];
     }
     else
     {
-        FileWriter fileToSave(pDna->getName() + ".rawdna");
-        fileToSave.write(pDna->getDnaData().c_str());
+        nameFolder = pDna->getName() + ".rawdna";
     }
 
+    FileWriter fileToSave("../Model/dna_sequence_files/saved_dna/" + nameFolder);
+    fileToSave.write(pDna->getDnaData().c_str());
 }
 
 
