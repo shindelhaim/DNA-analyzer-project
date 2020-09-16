@@ -16,7 +16,7 @@ class DnaMetaData
 {
 public:
     DnaMetaData(const DnaSequence& dnaSequence, const std::string &name);
-    std::string getDnaData()const;
+    std::string getDnaDataFormat()const;
     const std::string& getName()const{return m_name;}
     const size_t getId()const{return m_id;}
     const DnaSequence& getDnaSequence()const{return m_dnaSequence;}
