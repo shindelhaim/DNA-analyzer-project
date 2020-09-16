@@ -37,7 +37,7 @@ void NewCommand::execute(DataBaseDnaSequence* dataBase,IWriter* output) const
     dnaMetaData = new DnaMetaData((*m_pParams)[1],getValidName(tempName,dataBase));
     dataBase->addNewDna(dnaMetaData);
 
-    output->write((dnaMetaData->getDnaData()).c_str());
+    output->write((dnaMetaData->getDnaDataFormat()).c_str());
 }
 
 

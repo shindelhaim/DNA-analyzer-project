@@ -47,7 +47,7 @@ void SaveCommand::execute(DataBaseDnaSequence* dataBase,IWriter* output) const
     }
 
     FileWriter fileToSave("../Model/dna_sequence_files/saved_dna/" + nameFolder);
-    fileToSave.write(pDna->getDnaData().c_str());
+    fileToSave.write(pDna->getDnaDataFormat().c_str());
 }
 
 

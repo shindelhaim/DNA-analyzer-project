@@ -47,7 +47,7 @@ void DupCommand::execute(DataBaseDnaSequence* dataBase,IWriter* output) const
     dnaMetaData = new DnaMetaData(pDna->getDnaSequence(),getValidName(tempName,dataBase));
     dataBase->addNewDna(dnaMetaData);
 
-    output->write((dnaMetaData->getDnaData()).c_str());
+    output->write((dnaMetaData->getDnaDataFormat()).c_str());
 }
 
 
