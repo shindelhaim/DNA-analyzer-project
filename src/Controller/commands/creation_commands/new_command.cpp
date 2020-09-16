@@ -17,7 +17,7 @@ void NewCommand::initParams(const ParserParams &parameters)
 }
 
 
-void NewCommand::execute(DataBaseDnaSequence* dataBase,IWriter* output) const
+void NewCommand::execute(DataBaseDnaSequence* dataBase, IReader* input, IWriter* output) const
 {
     DnaMetaData* dnaMetaData;
     std::string tempName;

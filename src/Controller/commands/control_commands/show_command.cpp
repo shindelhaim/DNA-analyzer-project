@@ -17,7 +17,7 @@ void ShowCommand::initParams(const ParserParams &parameters)
 }
 
 
-void ShowCommand::execute(DataBaseDnaSequence* dataBase,IWriter* output) const
+void ShowCommand::execute(DataBaseDnaSequence* dataBase, IReader* input, IWriter* output) const
 {
     DnaMetaData* pDna;
     if((*m_pParams)[1][0] == '@')

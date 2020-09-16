@@ -18,7 +18,7 @@ void LenCommand::initParams(const ParserParams &parameters)
 }
 
 
-void LenCommand::execute(DataBaseDnaSequence* dataBase,IWriter* output) const
+void LenCommand::execute(DataBaseDnaSequence* dataBase, IReader* input, IWriter* output) const
 {
     DnaMetaData* dnaMetaData;
     size_t lenDna;

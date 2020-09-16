@@ -17,7 +17,7 @@ void ListCommand::initParams(const ParserParams &parameters)
 }
 
 
-void ListCommand::execute(DataBaseDnaSequence* dataBase,IWriter* output) const
+void ListCommand::execute(DataBaseDnaSequence* dataBase, IReader* input, IWriter* output) const
 {
     DnaMetaData* pDnaMetaData;
     const std::vector<size_t> ids = dataBase -> getSortIds();

@@ -12,7 +12,7 @@ class ShowCommand: public ControlCommand
 {
 public:
     /* virtual */ void initParams(const ParserParams& parameters);
-    void execute(DataBaseDnaSequence* dataBase,IWriter* output)const;
+    void execute(DataBaseDnaSequence* dataBase, IReader* input, IWriter* output)const;
 
 private:
     std::string getSpecifiesFormat(const DnaMetaData* dnaMetaData) const ;

@@ -18,7 +18,7 @@ void SaveCommand::initParams(const ParserParams &parameters)
 }
 
 
-void SaveCommand::execute(DataBaseDnaSequence* dataBase,IWriter* output) const
+void SaveCommand::execute(DataBaseDnaSequence* dataBase, IReader* input, IWriter* output) const
 {
     DnaMetaData* pDna;
 

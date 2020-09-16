@@ -11,7 +11,7 @@ class SaveCommand: public ManagementCommands
 {
 public:
     /* virtual */ void initParams(const ParserParams& parameters);
-    /* virtual */void execute(DataBaseDnaSequence* dataBase,IWriter* output)const;
+    /* virtual */void execute(DataBaseDnaSequence* dataBase, IReader* input, IWriter* output)const;
 
 private:
     bool is_valid();

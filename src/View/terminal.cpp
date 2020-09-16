@@ -23,7 +23,7 @@ void Terminal::run(DataBaseDnaSequence* dataBase ,IReader* input, IWriter* outpu
                 break;
             }
             pCommand = CommandFactory::getCommand(params);
-            pCommand -> execute(dataBase,output);
+            pCommand -> execute(dataBase, input, output);
 
 
         }

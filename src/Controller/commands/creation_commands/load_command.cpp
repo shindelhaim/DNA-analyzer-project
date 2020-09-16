@@ -19,7 +19,7 @@ void LoadCommand::initParams(const ParserParams &parameters)
 }
 
 
-void LoadCommand::execute(DataBaseDnaSequence* dataBase,IWriter* output) const
+void LoadCommand::execute(DataBaseDnaSequence* dataBase, IReader* input, IWriter* output) const
 {
     DnaMetaData* dnaMetaData;
     std::string nameFolder = "../Model/dna_sequence_files/load_dna/" + (*m_pParams)[1];

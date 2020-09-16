@@ -3,9 +3,7 @@
 #include <sstream>
 #include <string>
 #include "../../../Model/DB_DNA_sequence.h"
-#include "../../parser_params.h"
 #include "../../../Model/DNA_meta_data.h"
-#include "../../../Model/DNA_sequence.h"
 #include "../../utils.h"
 
 void FindCommand::initParams(const ParserParams &parameters)
@@ -20,7 +18,7 @@ void FindCommand::initParams(const ParserParams &parameters)
 }
 
 
-void FindCommand::execute(DataBaseDnaSequence* dataBase,IWriter* output) const
+void FindCommand::execute(DataBaseDnaSequence* dataBase, IReader* input, IWriter* output) const
 {
     const DnaSequence* pDna1 = NULL;
     const DnaSequence* pDna2 = NULL;
