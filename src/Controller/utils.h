@@ -11,6 +11,7 @@ class Utils
 
 public:
     static std::string getShortDnaMetaDataFormat(const DnaMetaData* dnaMetaData);
+    static bool isNumber(const std::string& str);
 };
 
 
