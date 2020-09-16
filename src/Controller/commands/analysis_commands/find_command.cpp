@@ -6,6 +6,7 @@
 #include "../../parser_params.h"
 #include "../../../Model/DNA_meta_data.h"
 #include "../../../Model/DNA_sequence.h"
+#include "../../utils.h"
 
 void FindCommand::initParams(const ParserParams &parameters)
 {
@@ -80,6 +81,6 @@ void FindCommand::execute(DataBaseDnaSequence* dataBase,IWriter* output) const
 bool FindCommand::is_valid()
 {
     return 3 == (*m_pParams).getSize()
-           && ((*m_pParams)[1][0] != '#' || (*m_pParams)[1].substr(1).find_first_not_of("0123456789") == std::string::npos)
-           && ((*m_pParams)[2][0] != '#' || (*m_pParams)[2].substr(1).find_first_not_of("0123456789") == std::string::npos);
+           && ((*m_pParams)[1][0] != '#' || Utils::isNumber((*m_pParams)[1].substr(1)))
+           && ((*m_pParams)[2][0] != '#' || Utils::isNumber((*m_pParams)[2].substr(1)));
 }

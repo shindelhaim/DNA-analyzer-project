@@ -3,9 +3,9 @@
 #include <cstdlib>
 #include "save_command.h"
 #include "../../../Model/DB_DNA_sequence.h"
-#include "../../parser_params.h"
 #include "../../../Model/DNA_meta_data.h"
 #include "../../../View/file_writer.h"
+#include "../../utils.h"
 
 void SaveCommand::initParams(const ParserParams &parameters)
 {
@@ -54,5 +54,5 @@ void SaveCommand::execute(DataBaseDnaSequence* dataBase,IWriter* output) const
 
 bool SaveCommand::is_valid()
 {
-    return (2 == (*m_pParams).getSize() || 3 == (*m_pParams).getSize()) && ((*m_pParams)[1][0] == '@'|| (((*m_pParams)[1][0] == '#') && (((*m_pParams)[1]).substr(1).find_first_not_of("0123456789") == std::string::npos)));
+    return (2 == (*m_pParams).getSize() || 3 == (*m_pParams).getSize()) && ((*m_pParams)[1][0] == '@'|| (((*m_pParams)[1][0] == '#') && Utils::isNumber((*m_pParams)[1].substr(1))));
 }

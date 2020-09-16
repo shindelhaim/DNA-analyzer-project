@@ -1,10 +1,10 @@
 #include "dup_command.h"
 #include <stdexcept>
 #include <sstream>
-#include "dup_command.h"
+
 #include "../../../Model/DB_DNA_sequence.h"
-#include "../../parser_params.h"
 #include "../../../Model/DNA_meta_data.h"
+#include "../../utils.h"
 
 void DupCommand::initParams(const ParserParams &parameters)
 {
@@ -56,5 +56,5 @@ bool DupCommand::is_valid()
 {
     return (2 == (*m_pParams).getSize() ||
     (3 == (*m_pParams).getSize() && (*m_pParams)[2][0] == '@'))
-    && ((*m_pParams)[1][0] == '@' || ((*m_pParams)[1][0] == '#') && (((*m_pParams)[1]).substr(1).find_first_not_of("0123456789") == std::string::npos));
+    && ((*m_pParams)[1][0] == '@' || ((*m_pParams)[1][0] == '#') && Utils::isNumber(((*m_pParams)[1]).substr(1)));
 }
