@@ -4,6 +4,7 @@
 #include <map>
 #include <cstddef>
 #include <string>
+#include <vector>
 
 class DnaMetaData;
 
@@ -14,6 +15,7 @@ public:
     DnaMetaData* findDnaById(size_t id);
     DnaMetaData* findDnaByName(std::string name);
     bool isNameExist(std::string name);
+    const std::vector<size_t> getSortIds() const;
 
 private:
     typedef std::map<size_t,DnaMetaData*> HashById ;
