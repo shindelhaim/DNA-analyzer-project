@@ -12,7 +12,6 @@ public:
 
 private:
     bool is_valid();
-    static std::string getDnaMetaDataAsStr(const DnaMetaData* dnaMetaData);
 };
 
 

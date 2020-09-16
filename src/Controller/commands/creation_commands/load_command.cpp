@@ -6,6 +6,7 @@
 #include "../../../Model/DNA_meta_data.h"
 #include "../../../View/screen_writer.h"
 #include "../../../View/file_reader.h"
+#include "../../utils.h"
 
 void LoadCommand::initParams(const ParserParams &parameters)
 {
@@ -36,9 +37,10 @@ void LoadCommand::execute(DataBaseDnaSequence* dataBase,IWriter* output) const
     }
 
     dnaMetaData = new DnaMetaData(fileReader.read(),getValidName(tempName,dataBase));
+    dnaMetaData -> setStatus(UP_TO_DATA);
     dataBase->addNewDna(dnaMetaData);
 
-    output->write(getDnaMetaDataAsStr(dnaMetaData).c_str());
+    output->write(Utils::getShortDnaMetaDataFormat(dnaMetaData).c_str());
 }
 
 
@@ -48,18 +50,3 @@ bool LoadCommand::is_valid()
     return 2 == (*m_pParams).getSize() || (3 == (*m_pParams).getSize() && (*m_pParams)[2][0] == '@');
 }
 
-std::string LoadCommand::getDnaMetaDataAsStr(const DnaMetaData* dnaMetaData)
-{
-    std::stringstream out;
-    out << "[" << dnaMetaData->getId() << "] " << dnaMetaData->getName() <<": ";
-    size_t lengthDnaSeq = (dnaMetaData->getDnaSequence()).length();
-    if( lengthDnaSeq > 40)
-    {
-        out << (dnaMetaData->getDnaSequence()).slice(0,32) << "..." <<(dnaMetaData->getDnaSequence()).slice(lengthDnaSeq-3,lengthDnaSeq);
-    }
-    else
-    {
-        out << (dnaMetaData->getDnaSequence());
-    }
-    return out.str();
-}
