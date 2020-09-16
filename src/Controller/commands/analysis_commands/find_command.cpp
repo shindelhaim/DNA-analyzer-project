@@ -65,16 +65,7 @@ void FindCommand::execute(DataBaseDnaSequence* dataBase,IWriter* output) const
     }
 
     std::stringstream out;
-
-    if ( pos >= pDna1 -> length())
-    {
-        out << "--Not found--";
-    }
-    else
-    {
-        out << pos;
-    }
-
+    out << pos;
     output -> write(out.str().c_str());
 
     if(isAllocate)
