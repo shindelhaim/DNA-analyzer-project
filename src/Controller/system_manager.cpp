@@ -4,7 +4,10 @@
 
 void SystemManager::start(UI* userInterface,IReader* input, IWriter* output)
 {
-    CommandFactory::init();
     userInterface -> run(&m_dataBaseDnaSequence,input,output);
+}
+
+void SystemManager::end()
+{
     CommandFactory::release();
 }

@@ -12,6 +12,7 @@ class SystemManager
 {
 public:
     void start(UI* user_interface, IReader* input, IWriter* output);
+    void end();
 
 private:
     DataBaseDnaSequence m_dataBaseDnaSequence;
