@@ -1,9 +1,9 @@
 #include <iostream>
 #include "terminal.h"
-#include "../Controller/parser_params.h"
-#include "keyboard_reader.h"
-#include "../Controller/commands/i_command.h"
-#include "../Controller/commands/command_factory.h"
+#include "../../Controller/parser_params.h"
+#include "../reader/keyboard_reader.h"
+#include "../../Controller/commands/i_command.h"
+#include "../../Controller/commands/command_factory.h"
 
 void Terminal::run(DataBaseDnaSequence* dataBase ,IReader* input, IWriter* output)
 {

@@ -1,8 +1,8 @@
 #include <iostream>
 #include "Controller/system_manager.h"
-#include "View/screen_writer.h"
-#include "View/keyboard_reader.h"
-#include "View/terminal.h"
+#include "View/writer/screen_writer.h"
+#include "View/reader/keyboard_reader.h"
+#include "View/UI/terminal.h"
 
 int main() {
 

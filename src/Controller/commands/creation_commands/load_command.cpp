@@ -1,7 +1,7 @@
 #include "load_command.h"
 #include <stdexcept>
 #include "../../../Model/DB_DNA_sequence.h"
-#include "../../../View/file_reader.h"
+#include "../../../View/reader/file_reader.h"
 #include "../../utils.h"
 
 void LoadCommand::initParams(const ParserParams &parameters)

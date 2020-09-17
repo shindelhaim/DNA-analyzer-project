@@ -2,8 +2,8 @@
 #define DNA_CLASS_DNASEQUENCE_H
 
 #include <list>
-#include "../View/i_reader.h"
-#include "../View/i_writer.h"
+#include "../View/reader/i_reader.h"
+#include "../View/writer/i_writer.h"
 
 class DnaSequence
 {

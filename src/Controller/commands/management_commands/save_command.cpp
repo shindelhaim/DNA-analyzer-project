@@ -4,7 +4,7 @@
 #include "save_command.h"
 #include "../../../Model/DB_DNA_sequence.h"
 #include "../../../Model/DNA_meta_data.h"
-#include "../../../View/file_writer.h"
+#include "../../../View/writer/file_writer.h"
 #include "../../utils.h"
 
 void SaveCommand::initParams(const ParserParams &parameters)
