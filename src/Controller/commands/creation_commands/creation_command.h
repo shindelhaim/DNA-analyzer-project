@@ -1,8 +1,8 @@
 #ifndef SRC_CREATION_COMMAND_H
 #define SRC_CREATION_COMMAND_H
-#include "../i_command.h"
+#include "../command.h"
 
-class CreationCommand: public ICommand
+class CreationCommand: public Command
 {
 public:
     /* virtual */ void initParams(const ParserParams& params) = 0;

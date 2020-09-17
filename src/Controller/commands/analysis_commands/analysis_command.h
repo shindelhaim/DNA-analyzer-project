@@ -1,9 +1,9 @@
 #ifndef SRC_ANALYSIS_COMMAND_H
 #define SRC_ANALYSIS_COMMAND_H
 
-#include "../i_command.h"
+#include "../command.h"
 
-class AnalysisCommand: public ICommand
+class AnalysisCommand: public Command
 {
 public:
     /* virtual */ void initParams(const ParserParams& params) = 0;
