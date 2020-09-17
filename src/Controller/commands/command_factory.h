@@ -3,7 +3,7 @@
 
 #include <string>
 #include <map>
-#include "../parser_params.h"
+#include "../../View/parser_params.h"
 
 class ICommand;
 

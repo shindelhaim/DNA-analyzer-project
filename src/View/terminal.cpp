@@ -1,6 +1,6 @@
 #include <iostream>
 #include "terminal.h"
-#include "../Controller/parser_params.h"
+#include "parser_params.h"
 #include "../View/keyboard_reader.h"
 #include "../Controller/commands/i_command.h"
 #include "../Controller/commands/command_factory.h"
