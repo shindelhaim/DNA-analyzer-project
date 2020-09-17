@@ -34,7 +34,7 @@ void SaveCommand::execute(DataBaseDnaSequence* dataBase, IReader* input, IWriter
         pDna = dataBase->findDnaById(id);
     }
 
-    pDna -> setStatus(UP_TO_DATA);
+    dataBase->moveStatus(pDna,UP_TO_DATA);
 
     std::string nameFolder;
     if((*m_pParams).getSize() == 3)
@@ -43,10 +43,10 @@ void SaveCommand::execute(DataBaseDnaSequence* dataBase, IReader* input, IWriter
     }
     else
     {
-        nameFolder = pDna->getName() + ".rawdna";
+        nameFolder = pDna->getName();
     }
 
-    FileWriter fileToSave("../Model/dna_sequence_files/saved_dna/" + nameFolder);
+    FileWriter fileToSave("../Model/dna_sequence_files/saved_dna/" + nameFolder +  + ".rawdna");
     fileToSave.write(pDna->getDnaDataFormat().c_str());
 }
 
