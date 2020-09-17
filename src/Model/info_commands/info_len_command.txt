@@ -1,0 +1,6 @@
+prints the length of the sequence.
+>>>> syntax: len <seq_id> <<<<
+----------------------------------------------------------------
+
+
+
