@@ -3,7 +3,7 @@
 #include "../../Model/DB_DNA_sequence.h"
 #include "../../Model/DNA_meta_data.h"
 
-std::string ICommand::getValidName(const std::string &name,  IReader* input, DataBaseDnaSequence *dataBase)
+std::string ICommand::getValidName(const std::string &name, DataBaseDnaSequence *dataBase)
 {
     std::string tempName = name;
 
