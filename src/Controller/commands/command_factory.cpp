@@ -14,6 +14,23 @@
 
 std::map<std::string,ICommand*> CommandFactory::m_commandsHash;
 
+struct InitCommandHash
+{
+    InitCommandHash()
+    {
+        CommandFactory::m_commandsHash.insert(std::pair<std::string, ICommand*>("new", new NewCommand));
+        CommandFactory::m_commandsHash.insert(std::pair<std::string, ICommand*>("load", new LoadCommand));
+        CommandFactory::m_commandsHash.insert(std::pair<std::string, ICommand*>("dup", new DupCommand));
+        CommandFactory::m_commandsHash.insert(std::pair<std::string, ICommand*>("save", new SaveCommand));
+        CommandFactory::m_commandsHash.insert(std::pair<std::string, ICommand*>("len", new LenCommand));
+        CommandFactory::m_commandsHash.insert(std::pair<std::string, ICommand*>("find", new FindCommand));
+        CommandFactory::m_commandsHash.insert(std::pair<std::string, ICommand*>("list", new ListCommand));
+        CommandFactory::m_commandsHash.insert(std::pair<std::string, ICommand*>("show", new ShowCommand));
+        CommandFactory::m_commandsHash.insert(std::pair<std::string, ICommand*>("quit", new QuitCommand));
+        CommandFactory::m_commandsHash.insert(std::pair<std::string, ICommand*>("help", new HelpCommand));
+    }
+}InitCommandHash;
+
 ICommand* CommandFactory::getCommand(const ParserParams& params)
 {
     std::string nameCommand = params[0];
@@ -34,21 +51,6 @@ ICommand* CommandFactory::getCommand(const ParserParams& params)
     {
         throw std::invalid_argument("COMMAND NOT FOUND");
     }
-
-}
-
-void CommandFactory::init()
-{
-    m_commandsHash.insert(std::pair<std::string, ICommand*>("new", new NewCommand));
-    m_commandsHash.insert(std::pair<std::string, ICommand*>("load", new LoadCommand));
-    m_commandsHash.insert(std::pair<std::string, ICommand*>("dup", new DupCommand));
-    m_commandsHash.insert(std::pair<std::string, ICommand*>("save", new SaveCommand));
-    m_commandsHash.insert(std::pair<std::string, ICommand*>("len", new LenCommand));
-    m_commandsHash.insert(std::pair<std::string, ICommand*>("find", new FindCommand));
-    m_commandsHash.insert(std::pair<std::string, ICommand*>("list", new ListCommand));
-    m_commandsHash.insert(std::pair<std::string, ICommand*>("show", new ShowCommand));
-    m_commandsHash.insert(std::pair<std::string, ICommand*>("quit", new QuitCommand));
-    m_commandsHash.insert(std::pair<std::string, ICommand*>("help", new HelpCommand));
 
 }
 

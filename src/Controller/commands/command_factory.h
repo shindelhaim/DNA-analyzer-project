@@ -10,12 +10,12 @@ class ICommand;
 class CommandFactory
 {
 public:
-    static void init();
     static void release();
     static ICommand* getCommand(const ParserParams& nameCommand);
     static std::vector<std::string> getCommandNames();
 
 private:
+    friend struct InitCommandHash;
     typedef std::map<std::string,ICommand*> HashCommands;
     static HashCommands m_commandsHash;
 };
