@@ -2,7 +2,6 @@
 #include <stdexcept>
 #include <sstream>
 #include "../../../Model/DB_DNA_sequence.h"
-#include "../../../Model/DNA_meta_data.h"
 #include "../../utils.h"
 
 void ListCommand::initParams(const ParserParams &parameters)
