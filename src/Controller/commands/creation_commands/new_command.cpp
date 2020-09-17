@@ -4,6 +4,7 @@
 #include "../../../Model/DB_DNA_sequence.h"
 #include "../../parser_params.h"
 #include "../../../Model/DNA_meta_data.h"
+#include "../../utils.h"
 
 void NewCommand::initParams(const ParserParams &parameters)
 {
@@ -34,7 +35,7 @@ void NewCommand::execute(DataBaseDnaSequence* dataBase, IReader* input, IWriter*
         ++s_countDefault;
         tempName = out.str();
     }
-    dnaMetaData = new DnaMetaData((*m_pParams)[1],getValidName(tempName,dataBase));
+    dnaMetaData = new DnaMetaData((*m_pParams)[1],Utils::getValidName(tempName,dataBase));
     dataBase->addNewDna(dnaMetaData);
 
     output->write((dnaMetaData->getDnaDataFormat()).c_str());

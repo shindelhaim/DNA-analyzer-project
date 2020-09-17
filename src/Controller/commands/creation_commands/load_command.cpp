@@ -1,10 +1,6 @@
 #include "load_command.h"
 #include <stdexcept>
-#include <sstream>
 #include "../../../Model/DB_DNA_sequence.h"
-#include "../../parser_params.h"
-#include "../../../Model/DNA_meta_data.h"
-#include "../../../View/screen_writer.h"
 #include "../../../View/file_reader.h"
 #include "../../utils.h"
 
@@ -36,7 +32,7 @@ void LoadCommand::execute(DataBaseDnaSequence* dataBase, IReader* input, IWriter
         tempName = (*m_pParams)[1].substr(0,pointIndex);
     }
 
-    dnaMetaData = new DnaMetaData(fileReader.read(),getValidName(tempName,dataBase));
+    dnaMetaData = new DnaMetaData(fileReader.read(),Utils::getValidName(tempName,dataBase));
     dnaMetaData -> setStatus(UP_TO_DATA);
     dataBase->addNewDna(dnaMetaData);
 

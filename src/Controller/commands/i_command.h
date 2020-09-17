@@ -15,7 +15,6 @@ public:
 
 protected:
     const ParserParams* m_pParams;
-    static std::string getValidName(const std::string& name,DataBaseDnaSequence* dataBase);
 };
 
 #endif //SRC_I_COMMAND_H
