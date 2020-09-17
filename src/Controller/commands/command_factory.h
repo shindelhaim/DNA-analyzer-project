@@ -13,9 +13,11 @@ public:
     static void init();
     static void release();
     static ICommand* getCommand(const ParserParams& nameCommand);
+    static std::vector<std::string> getCommandNames();
 
 private:
-    static std::map<std::string,ICommand*> m_commandsHash;
+    typedef std::map<std::string,ICommand*> HashCommands;
+    static HashCommands m_commandsHash;
 };
 
 #endif //SRC_COMMAND_FACTORY_H
