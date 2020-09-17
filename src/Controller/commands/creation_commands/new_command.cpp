@@ -2,7 +2,7 @@
 #include <sstream>
 #include "new_command.h"
 #include "../../../Model/DB_DNA_sequence.h"
-#include "../../../View/parser_params.h"
+#include "../../parser_params.h"
 #include "../../../Model/DNA_meta_data.h"
 
 void NewCommand::initParams(const ParserParams &parameters)

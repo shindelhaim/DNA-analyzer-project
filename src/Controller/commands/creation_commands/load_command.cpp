@@ -2,7 +2,7 @@
 #include <stdexcept>
 #include <sstream>
 #include "../../../Model/DB_DNA_sequence.h"
-#include "../../../View/parser_params.h"
+#include "../../parser_params.h"
 #include "../../../Model/DNA_meta_data.h"
 #include "../../../View/screen_writer.h"
 #include "../../../View/file_reader.h"

@@ -1,7 +1,7 @@
 #include <iostream>
 #include "terminal.h"
-#include "parser_params.h"
-#include "../View/keyboard_reader.h"
+#include "../Controller/parser_params.h"
+#include "keyboard_reader.h"
 #include "../Controller/commands/i_command.h"
 #include "../Controller/commands/command_factory.h"
 
