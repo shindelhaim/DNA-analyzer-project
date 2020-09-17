@@ -1,0 +1,21 @@
+#ifndef SRC_QUIT_COMMAND_H
+#define SRC_QUIT_COMMAND_H
+
+#include "control_command.h"
+
+class ParserParams;
+class IWriter;
+class DataBaseDnaSequence;
+
+class QuitCommand: public ControlCommand
+{
+public:
+    /* virtual */ void initParams(const ParserParams& parameters);
+    void execute(DataBaseDnaSequence* dataBase, IReader* input, IWriter* output)const;
+
+private:
+    bool is_valid();
+};
+
+
+#endif //SRC_QUIT_COMMAND_H

@@ -15,16 +15,11 @@ void Terminal::run(DataBaseDnaSequence* dataBase ,IReader* input, IWriter* outpu
     {
         try
         {
-            std::cout << "cmd >>> ";
+            std::cout << "> cmd >>> ";
             input -> initInput();
             params.parseInput(*input);
-            if("quit" == params[0])
-            {
-                break;
-            }
             pCommand = CommandFactory::getCommand(params);
             pCommand -> execute(dataBase, input, output);
-
 
         }
         catch (const std::invalid_argument& e)
@@ -38,6 +33,10 @@ void Terminal::run(DataBaseDnaSequence* dataBase ,IReader* input, IWriter* outpu
         catch (const std::runtime_error& e)
         {
             std::cout << "ERROR: " << e.what() << std::endl;
+        }
+        catch (const std::logic_error& e)
+        {
+            break;
         }
 
     }
