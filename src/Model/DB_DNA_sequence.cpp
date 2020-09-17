@@ -3,11 +3,20 @@
 #include "DB_DNA_sequence.h"
 #include "DNA_meta_data.h"
 
+DataBaseDnaSequence::DataBaseDnaSequence()
+{
+    std::vector<size_t> emptyVec;
+    m_hashtableByStatus.insert(std::pair<Status,std::vector<size_t> >(NEW, emptyVec));
+    m_hashtableByStatus.insert(std::pair<Status,std::vector<size_t> >(MODIFIED, emptyVec));
+    m_hashtableByStatus.insert(std::pair<Status,std::vector<size_t> >(UP_TO_DATA, emptyVec));
+}
+
+
 void DataBaseDnaSequence::addNewDna(DnaMetaData *dna)
 {
     m_hashTableByID.insert(std::pair<size_t,DnaMetaData*>(dna->getId(),dna));
     m_hashTableByName.insert(std::pair<std::string,size_t>(dna->getName(),dna->getId()));
-
+    m_hashtableByStatus.at(dna->getStatus()).push_back(dna->getId());
 }
 
 DnaMetaData* DataBaseDnaSequence::findDnaById(size_t id)
@@ -31,7 +40,8 @@ DnaMetaData* DataBaseDnaSequence::findDnaByName(std::string name)
     return findDnaById(id);
 }
 
-bool DataBaseDnaSequence::isNameExist(std::string name) {
+bool DataBaseDnaSequence::isNameExist(std::string name)
+{
     try {
         findDnaByName(name);
     }
@@ -56,4 +66,29 @@ const std::vector<size_t> DataBaseDnaSequence::getSortIds() const
 
     return ids;
 }
+
+size_t DataBaseDnaSequence::getNumNewDna() const
+{
+    return m_hashtableByStatus.at(NEW).size();
+}
+
+size_t DataBaseDnaSequence::getModifiedNewDna() const
+{
+    return m_hashtableByStatus.at(MODIFIED).size();
+}
+
+void DataBaseDnaSequence::moveStatus(DnaMetaData* pDnaMetaData, Status dest)
+{
+
+    std::vector<size_t>::iterator iterFind;
+    std::vector<size_t>& vecOldStatus = m_hashtableByStatus.at(pDnaMetaData->getStatus());
+    iterFind = std::find(vecOldStatus.begin(), vecOldStatus.end(), pDnaMetaData->getId());
+    vecOldStatus.erase(iterFind);
+
+    m_hashtableByStatus.at(dest).push_back(pDnaMetaData->getId());
+
+    pDnaMetaData -> setStatus(dest);
+
+}
+
 
