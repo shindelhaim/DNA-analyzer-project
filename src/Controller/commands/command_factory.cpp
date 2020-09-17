@@ -3,13 +3,14 @@
 #include "i_command.h"
 #include "creation_commands/new_command.h"
 #include "creation_commands/load_command.h"
-#include "management_commands/save_command.h"
 #include "creation_commands/dup_command.h"
+#include "management_commands/save_command.h"
 #include "analysis_commands/len_command.h"
 #include "analysis_commands/find_command.h"
 #include "control_commands/list_command.h"
 #include "control_commands/show_command.h"
 #include "control_commands/quit_command.h"
+#include "control_commands/help_command.h"
 
 std::map<std::string,ICommand*> CommandFactory::m_commandsHash;
 
@@ -47,6 +48,7 @@ void CommandFactory::init()
     m_commandsHash.insert(std::pair<std::string, ICommand*>("list", new ListCommand));
     m_commandsHash.insert(std::pair<std::string, ICommand*>("show", new ShowCommand));
     m_commandsHash.insert(std::pair<std::string, ICommand*>("quit", new QuitCommand));
+    m_commandsHash.insert(std::pair<std::string, ICommand*>("help", new HelpCommand));
 
 }
 
@@ -61,5 +63,19 @@ void CommandFactory::release()
     delete m_commandsHash.at("list");
     delete m_commandsHash.at("show");
     delete m_commandsHash.at("quit");
+    delete m_commandsHash.at("help");
 
+}
+
+std::vector<std::string> CommandFactory::getCommandNames()
+{
+    HashCommands::iterator iterCommand;
+    std::vector<std::string> commandNames;
+
+    for(iterCommand = m_commandsHash.begin(); iterCommand != m_commandsHash.end(); ++iterCommand)
+    {
+        commandNames.push_back(iterCommand -> first);
+    }
+
+    return commandNames;
 }
