@@ -34,7 +34,7 @@ void SaveCommand::execute(DataBaseDnaSequence* dataBase, IReader* input, IWriter
         pDna = dataBase->findDnaById(id);
     }
 
-    pDna -> setStatus(UP_TO_DATA);
+    dataBase->moveStatus(pDna,UP_TO_DATA);
 
     std::string nameFolder;
     if((*m_pParams).getSize() == 3)
