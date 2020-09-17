@@ -14,6 +14,7 @@
 
 std::map<std::string,ICommand*> CommandFactory::m_commandsHash;
 
+
 struct InitCommandHash
 {
     InitCommandHash()
@@ -30,6 +31,7 @@ struct InitCommandHash
         CommandFactory::m_commandsHash.insert(std::pair<std::string, ICommand*>("help", new HelpCommand));
     }
 }InitCommandHash;
+
 
 ICommand* CommandFactory::getCommand(const ParserParams& params)
 {
@@ -54,6 +56,7 @@ ICommand* CommandFactory::getCommand(const ParserParams& params)
 
 }
 
+
 void CommandFactory::release()
 {
     delete m_commandsHash.at("new");
@@ -68,6 +71,7 @@ void CommandFactory::release()
     delete m_commandsHash.at("help");
 
 }
+
 
 std::vector<std::string> CommandFactory::getCommandNames()
 {
