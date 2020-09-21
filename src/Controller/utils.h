@@ -2,6 +2,7 @@
 #define SRC_UTILS_H
 
 #include <string>
+#include <list>
 
 class DnaMetaData;
 class DataBaseDnaSequence;
@@ -18,6 +19,7 @@ public:
     static bool isNumber(const std::string& str);
     static size_t castStrToNum(const std::string& str);
     static std::string castNumToStr(size_t);
+    static const std::string castNumsListToString(const std::list<size_t>& list);
 
 };
 

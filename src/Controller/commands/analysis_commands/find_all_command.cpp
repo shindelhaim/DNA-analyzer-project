@@ -48,16 +48,14 @@ void FindAllCommand::execute(DataBaseDnaSequence* dataBase, IReader* input, IWri
     {
         listIndexes = pDna1 -> findAll((*m_pParams)[2]);
     }
-
-    std::stringstream out;
-    std::list<size_t>::iterator iterList;
-    for(iterList = listIndexes.begin(); iterList != listIndexes.end(); ++iterList)
+    if(listIndexes.empty())
     {
-        out << *iterList << ' ';
+        output -> write("--- The sub-sequence not found ---");
     }
-
-
-    output -> write(out.str().c_str());
+    else
+    {
+        output -> write(Utils::castNumsListToString(listIndexes).c_str());
+    }
 
     if(isAllocate)
     {

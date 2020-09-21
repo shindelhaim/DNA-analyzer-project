@@ -70,3 +70,14 @@ DnaMetaData *Utils::findDnaMateData(DataBaseDnaSequence* dataBase, char c, const
             return NULL;
     }
 }
+
+const std::string Utils::castNumsListToString(const std::list<size_t>& list)
+{
+    std::stringstream out;
+    std::list<size_t>::const_iterator iterList;
+    for(iterList = list.begin(); iterList != list.end(); ++iterList)
+    {
+        out << *iterList << ' ';
+    }
+    return out.str();
+}
