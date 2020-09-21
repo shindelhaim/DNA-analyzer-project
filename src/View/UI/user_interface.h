@@ -9,7 +9,7 @@ class UI
 {
 public:
     virtual void run(DataBaseDnaSequence* dataBaseDnaSequence, IReader* input, IWriter* output) = 0;
-
+    virtual ~UI(){}
 };
 
 
