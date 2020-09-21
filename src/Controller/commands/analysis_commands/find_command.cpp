@@ -19,23 +19,29 @@ void FindCommand::initParams(const ParserParams &parameters)
 
 void FindCommand::execute(DataBaseDnaSequence* dataBase, IReader* input, IWriter* output) const
 {
+    const DnaMetaData* tempPMetaData;
     const DnaSequence* pDna1;
     const DnaSequence* pDna2;
     bool isAllocate = false;
     size_t pos;
 
 
-    pDna1 = &(Utils::findDnaMateData(dataBase, (*m_pParams)[1][0], (*m_pParams)[1].substr(1))->getDnaSequence());
-    if(!pDna1)
+    tempPMetaData = Utils::findDnaMateData(dataBase, (*m_pParams)[1][0], (*m_pParams)[1].substr(1));
+    if(tempPMetaData)
+    {
+        pDna1 = &(tempPMetaData -> getDnaSequence());
+    }
+    else
     {
         pDna1 = new DnaSequence((*m_pParams)[1]);
         isAllocate = true;
     }
 
-    pDna2 = &(Utils::findDnaMateData(dataBase, (*m_pParams)[2][0], (*m_pParams)[1].substr(1))->getDnaSequence());
+    tempPMetaData = Utils::findDnaMateData(dataBase, (*m_pParams)[2][0], (*m_pParams)[2].substr(1));
 
-    if (pDna2)
+    if(tempPMetaData)
     {
+        pDna2 = &(tempPMetaData -> getDnaSequence());
         pos = pDna1 -> find(*pDna2);
     }
     else
