@@ -22,11 +22,12 @@ void LoadCommand::execute(DataBaseDnaSequence* dataBase, IReader* input, IWriter
     FileReader fileReader(nameFolder);
     fileReader.initInput();
     std::string tempName;
+
     if(3 == (*m_pParams).getSize())
     {
         tempName = (*m_pParams)[2].substr(1);
     }
-    if(2 == (*m_pParams).getSize())
+    else
     {
         size_t pointIndex = (*m_pParams)[1].find_last_of('.');
         tempName = (*m_pParams)[1].substr(0,pointIndex);

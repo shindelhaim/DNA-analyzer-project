@@ -3,7 +3,6 @@
 #include <sstream>
 #include <string>
 #include "../../../Model/DB_DNA_sequence.h"
-#include "../../../Model/DNA_meta_data.h"
 #include "../../utils.h"
 
 void FindCommand::initParams(const ParserParams &parameters)
@@ -20,39 +19,20 @@ void FindCommand::initParams(const ParserParams &parameters)
 
 void FindCommand::execute(DataBaseDnaSequence* dataBase, IReader* input, IWriter* output) const
 {
-    const DnaSequence* pDna1 = NULL;
-    const DnaSequence* pDna2 = NULL;
+    const DnaSequence* pDna1;
+    const DnaSequence* pDna2;
     bool isAllocate = false;
     size_t pos;
 
-    if ((*m_pParams)[1][0] == '@')
-    {
-        pDna1 = & ((dataBase -> findDnaByName((*m_pParams)[1].substr(1)))->getDnaSequence());
-    }
-    else if((*m_pParams)[1][0] == '#')
-    {
-        std::istringstream in((*m_pParams)[1].substr(1));
-        size_t id;
-        in >> id;
-        pDna1 = & ((dataBase -> findDnaById(id))->getDnaSequence());
-    }
-    else
+
+    pDna1 = &(Utils::findDnaMateData(dataBase, (*m_pParams)[1][0], (*m_pParams)[1].substr(1))->getDnaSequence());
+    if(!pDna1)
     {
         pDna1 = new DnaSequence((*m_pParams)[1]);
         isAllocate = true;
     }
 
-    if ((*m_pParams)[2][0] == '@')
-    {
-        pDna2 = & ((dataBase -> findDnaByName((*m_pParams)[2].substr(1)))->getDnaSequence());
-    }
-    else if ((*m_pParams)[2][0] == '#')
-    {
-        std::istringstream in((*m_pParams)[2].substr(1));
-        size_t id;
-        in >> id;
-        pDna2 = & ((dataBase -> findDnaById(id))->getDnaSequence());
-    }
+    pDna2 = &(Utils::findDnaMateData(dataBase, (*m_pParams)[2][0], (*m_pParams)[1].substr(1))->getDnaSequence());
 
     if (pDna2)
     {
@@ -63,9 +43,7 @@ void FindCommand::execute(DataBaseDnaSequence* dataBase, IReader* input, IWriter
         pos = pDna1 -> find((*m_pParams)[2]);
     }
 
-    std::stringstream out;
-    out << pos;
-    output -> write(out.str().c_str());
+    output -> write(Utils::castNumToStr(pos).c_str());
 
     if(isAllocate)
     {

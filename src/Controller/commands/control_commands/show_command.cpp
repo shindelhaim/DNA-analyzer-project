@@ -20,18 +20,8 @@ void ShowCommand::initParams(const ParserParams &parameters)
 void ShowCommand::execute(DataBaseDnaSequence* dataBase, IReader* input, IWriter* output) const
 {
     DnaMetaData* pDna;
-    if((*m_pParams)[1][0] == '@')
-    {
-        pDna = dataBase->findDnaByName((*m_pParams)[1].substr(1));
-    }
-    else
-    {
-        std::istringstream in((*m_pParams)[1].substr(1));
-        size_t id;
-        in >> id;
-        pDna = dataBase->findDnaById(id);
-    }
 
+    pDna = Utils::findDnaMateData(dataBase, (*m_pParams)[1][0], (*m_pParams)[1].substr(1));
 
     output->write(getSpecifiesFormat(pDna).c_str());
 }
@@ -52,14 +42,12 @@ std::string ShowCommand::getSpecifiesFormat(const DnaMetaData *pDnaMetaData) con
 
     if(m_pParams->getSize() == 3)
     {
-        std::istringstream in((*m_pParams)[2]);
-        in >> numChars;
+        numChars = Utils::castStrToNum((*m_pParams)[2]);
     }
     else
     {
         numChars = 99;
     }
-
 
 
     switch (pDnaMetaData->getStatus())

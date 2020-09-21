@@ -3,7 +3,6 @@
 #include <sstream>
 #include <string>
 #include "../../../Model/DB_DNA_sequence.h"
-#include "../../../Model/DNA_meta_data.h"
 #include "../../utils.h"
 
 void LenCommand::initParams(const ParserParams &parameters)
@@ -20,26 +19,13 @@ void LenCommand::initParams(const ParserParams &parameters)
 
 void LenCommand::execute(DataBaseDnaSequence* dataBase, IReader* input, IWriter* output) const
 {
-    DnaMetaData* dnaMetaData;
     size_t lenDna;
-    DnaMetaData* pDna;
-    if((*m_pParams)[1][0] == '@')
-    {
-        pDna = dataBase->findDnaByName((*m_pParams)[1].substr(1));
-    }
-    else
-    {
-        std::istringstream in((*m_pParams)[1].substr(1));
-        size_t id;
-        in >> id;
-        pDna = dataBase->findDnaById(id);
-    }
+    const DnaSequence* pDna;
 
-    lenDna = pDna->getDnaSequence().length();
-    std::stringstream out;
-    out << lenDna;
-    output->write(out.str().c_str());
+    pDna = &(Utils::findDnaMateData(dataBase, (*m_pParams)[1][0], (*m_pParams)[1].substr(1))->getDnaSequence());
 
+    lenDna = pDna -> length();
+    output->write(Utils::castNumToStr(lenDna).c_str());
 }
 
 

@@ -23,27 +23,19 @@ void DupCommand::execute(DataBaseDnaSequence* dataBase, IReader* input, IWriter*
     DnaMetaData* dnaMetaData;
     std::string tempName;
     DnaMetaData* pDna;
-    if((*m_pParams)[1][0] == '@')
-    {
-        pDna = dataBase->findDnaByName((*m_pParams)[1].substr(1));
-    }
-    else
-    {
-        std::istringstream in((*m_pParams)[1].substr(1));
-        size_t id;
-        in >> id;
-        pDna = dataBase->findDnaById(id);
-    }
+
+    pDna = Utils::findDnaMateData(dataBase, (*m_pParams)[1][0], (*m_pParams)[1].substr(1));
+
 
     if(3 == (*m_pParams).getSize())
     {
         tempName = (*m_pParams)[2].substr(1);
-
     }
-    if(2 == (*m_pParams).getSize())
+    else
     {
         tempName = pDna->getName();
     }
+
     dnaMetaData = new DnaMetaData(pDna->getDnaSequence(),Utils::getValidName(tempName,dataBase));
     dataBase->addNewDna(dnaMetaData);
 

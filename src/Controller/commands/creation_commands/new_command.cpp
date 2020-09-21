@@ -23,19 +23,30 @@ void NewCommand::execute(DataBaseDnaSequence* dataBase, IReader* input, IWriter*
     DnaMetaData* dnaMetaData;
     std::string tempName;
     static size_t s_countDefault = 1;
-    if(3 == (*m_pParams).getSize())
+    bool isSentName = 3 == (*m_pParams).getSize();
+
+    if(isSentName)
     {
         tempName = (*m_pParams)[2].substr(1);
-
     }
-    if(2 == (*m_pParams).getSize())
+    else
     {
-        std::stringstream out;
-        out << "seq" << s_countDefault;
-        ++s_countDefault;
-        tempName = out.str();
+        tempName = "seq" + Utils::castNumToStr(s_countDefault++);
     }
-    dnaMetaData = new DnaMetaData((*m_pParams)[1],Utils::getValidName(tempName,dataBase));
+
+    try
+    {
+        dnaMetaData = new DnaMetaData((*m_pParams)[1],Utils::getValidName(tempName,dataBase));
+    }
+    catch (const std::invalid_argument& e)
+    {
+        if(!isSentName)
+        {
+            --s_countDefault;
+        }
+        throw e;
+    }
+
     dataBase->addNewDna(dnaMetaData);
 
     output->write((dnaMetaData->getDnaDataFormat()).c_str());

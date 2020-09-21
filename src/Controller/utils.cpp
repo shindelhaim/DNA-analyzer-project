@@ -39,3 +39,34 @@ std::string Utils::getValidName(const std::string &name, DataBaseDnaSequence *da
 
     return tempName;
 }
+
+size_t Utils::castStrToNum(const std::string &str)
+{
+    std::istringstream in(str);
+    size_t num;
+    in >> num;
+    return num;
+}
+
+std::string Utils::castNumToStr(size_t num) {
+    std::stringstream out;
+    out << num;
+    return out.str();
+}
+
+DnaMetaData *Utils::findDnaMateData(DataBaseDnaSequence* dataBase, char c, const std::string& str)
+{
+    size_t id;
+    switch (c)
+    {
+        case '@':
+            return dataBase -> findDnaByName(str);
+
+        case '#':
+            id = Utils::castStrToNum(str);
+            return dataBase -> findDnaById(id);
+
+        default:
+            return NULL;
+    }
+}

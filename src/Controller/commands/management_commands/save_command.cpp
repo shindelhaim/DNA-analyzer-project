@@ -21,22 +21,11 @@ void SaveCommand::initParams(const ParserParams &parameters)
 void SaveCommand::execute(DataBaseDnaSequence* dataBase, IReader* input, IWriter* output) const
 {
     DnaMetaData* pDna;
+    std::string nameFolder;
 
-    if((*m_pParams)[1][0] == '@')
-    {
-        pDna = dataBase->findDnaByName((*m_pParams)[1].substr(1));
-    }
-    else
-    {
-        std::istringstream in((*m_pParams)[1].substr(1));
-        size_t id;
-        in >> id;
-        pDna = dataBase->findDnaById(id);
-    }
-
+    pDna = Utils::findDnaMateData(dataBase, (*m_pParams)[1][0], (*m_pParams)[1].substr(1));
     dataBase->moveStatus(pDna,UP_TO_DATA);
 
-    std::string nameFolder;
     if((*m_pParams).getSize() == 3)
     {
         nameFolder = (*m_pParams)[2];
@@ -48,6 +37,8 @@ void SaveCommand::execute(DataBaseDnaSequence* dataBase, IReader* input, IWriter
 
     FileWriter fileToSave("../Model/dna_sequence_files/saved_dna/" + nameFolder +  + ".rawdna");
     fileToSave.write(pDna->getDnaDataFormat().c_str());
+
+    output->write("--- saved ---");
 }
 
 
