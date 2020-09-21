@@ -82,11 +82,11 @@ void DataBaseDnaSequence::moveStatus(DnaMetaData* pDnaMetaData, Status dest)
 
     std::vector<size_t>::iterator iterFind;
     std::vector<size_t>& vecOldStatus = m_hashtableByStatus.at(pDnaMetaData->getStatus());
+
     iterFind = std::find(vecOldStatus.begin(), vecOldStatus.end(), pDnaMetaData->getId());
     vecOldStatus.erase(iterFind);
 
     m_hashtableByStatus.at(dest).push_back(pDnaMetaData->getId());
-
     pDnaMetaData -> setStatus(dest);
 
 }
