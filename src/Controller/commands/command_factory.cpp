@@ -7,6 +7,7 @@
 #include "management_commands/save_command.h"
 #include "analysis_commands/len_command.h"
 #include "analysis_commands/find_command.h"
+#include "analysis_commands/count_command.h"
 #include "control_commands/list_command.h"
 #include "control_commands/show_command.h"
 #include "control_commands/quit_command.h"
@@ -29,6 +30,8 @@ struct InitCommandHash
         CommandFactory::m_commandsHash.insert(std::pair<std::string, ICommand*>("show", new ShowCommand));
         CommandFactory::m_commandsHash.insert(std::pair<std::string, ICommand*>("quit", new QuitCommand));
         CommandFactory::m_commandsHash.insert(std::pair<std::string, ICommand*>("help", new HelpCommand));
+        CommandFactory::m_commandsHash.insert(std::pair<std::string, ICommand*>("count", new CountCommand));
+
     }
 }InitCommandHash;
 
@@ -69,6 +72,8 @@ void CommandFactory::release()
     delete m_commandsHash.at("show");
     delete m_commandsHash.at("quit");
     delete m_commandsHash.at("help");
+    delete m_commandsHash.at("count");
+
 
 }
 
