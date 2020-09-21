@@ -1,6 +1,5 @@
 #include "find_command.h"
 #include <stdexcept>
-#include <sstream>
 #include <string>
 #include "../../../Model/DB_DNA_sequence.h"
 #include "../../utils.h"

@@ -9,7 +9,3 @@ It has two flavors:
 ----------------------------------------------------------------
 returns the (0-based) index of the first appearance of <expressed_sub_seq>
 in the sequence <seq>.
-
-
-
-
