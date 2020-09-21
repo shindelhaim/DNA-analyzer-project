@@ -9,14 +9,14 @@ FileReader::FileReader(const std::string& nameFile):m_nameFile(nameFile)
 
 void FileReader::initInput()
 {
-    std::string dnaSeq;
+    std::string line;
     std::ifstream fileToRead;
     fileToRead.open(m_nameFile.c_str());
     if(!fileToRead.is_open())
     {
         throw std::runtime_error("FAILED TO OPEN FILE");
     }
-    getline(fileToRead,dnaSeq);
+    getline(fileToRead,line);
     fileToRead.close();
-    m_data = dnaSeq;
+    m_data = line;
 }
