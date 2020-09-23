@@ -34,9 +34,11 @@ void ParserParams::parseInput(const IReader& inputToParse, char delimiter)
         {
             m_params.push_back(data);
         }
+
+        ++i;
     }
 
-    m_size = i+1;
+    m_size = i;
 
 }
 
