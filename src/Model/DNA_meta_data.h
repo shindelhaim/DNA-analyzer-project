@@ -23,6 +23,7 @@ public:
     size_t getCountCopies() { return m_countCopies++;}
     void setStatus(Status status){m_status = status;}
     Status getStatus() const { return m_status;}
+    void setName(const std::string& name) { m_name = name;}
 private:
     size_t m_id;
     std::string m_name;
