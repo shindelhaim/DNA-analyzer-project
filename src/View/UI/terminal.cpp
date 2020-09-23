@@ -5,7 +5,7 @@
 #include "../../Controller/commands/i_command.h"
 #include "../../Controller/commands/command_factory.h"
 
-void Terminal::run(DataBaseDnaSequence* dataBase ,IReader* input, IWriter* output)
+void Terminal::run(DataBaseDnaSequence* dataBase ,Callback<SystemManager>& callback,IReader* input, IWriter* output)
 {
 
     ParserParams params;
@@ -17,9 +17,7 @@ void Terminal::run(DataBaseDnaSequence* dataBase ,IReader* input, IWriter* outpu
         {
             std::cout << "> cmd >>> ";
             input -> initInput();
-            params.parseInput(*input);
-            pCommand = CommandFactory::getCommand(params);
-            pCommand -> execute(dataBase, input, output);
+            callback(params, input, output);
 
         }
         catch (const std::invalid_argument& e)

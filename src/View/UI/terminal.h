@@ -10,7 +10,7 @@ class DataBaseDnaSequence;
 class Terminal : public UI
 {
 public:
-    /* virtual */ void run(DataBaseDnaSequence* dataBaseDnaSequence, IReader* input, IWriter* output);
+    /* virtual */ void run(DataBaseDnaSequence* dataBaseDnaSequence, Callback<SystemManager>& callback, IReader* input, IWriter* output);
 };
 
 
