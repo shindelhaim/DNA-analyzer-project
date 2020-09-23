@@ -5,6 +5,7 @@
 #include "creation_commands/load_command.h"
 #include "creation_commands/dup_command.h"
 #include "management_commands/save_command.h"
+#include "management_commands/rename_command.h"
 #include "analysis_commands/len_command.h"
 #include "analysis_commands/find_command.h"
 #include "analysis_commands/count_command.h"
@@ -33,6 +34,7 @@ struct InitCommandHash
         CommandFactory::m_commandsHash.insert(CommandFactory::PairCommand("help", (new HelpCommand)));
         CommandFactory::m_commandsHash.insert(CommandFactory::PairCommand("count", (new CountCommand)));
         CommandFactory::m_commandsHash.insert(CommandFactory::PairCommand("findall", (new FindAllCommand)));
+        CommandFactory::m_commandsHash.insert(CommandFactory::PairCommand("rename", (new RenameCommand)));
 
     }
 }InitCommandHash;
@@ -76,7 +78,7 @@ void CommandFactory::release()
     delete m_commandsHash.at("help");
     delete m_commandsHash.at("count");
     delete m_commandsHash.at("findall");
-
+    delete m_commandsHash.at("rename");
 
 
 }
