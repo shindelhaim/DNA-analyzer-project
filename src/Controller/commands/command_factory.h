@@ -16,7 +16,8 @@ public:
 
 private:
     friend struct InitCommandHash;
-    typedef std::map<std::string,ICommand*> HashCommands;
+    typedef std::map<std::string,ICommand* > HashCommands;
+    typedef std::pair<std::string,ICommand* > PairCommand;
     static HashCommands m_commandsHash;
 };
 
