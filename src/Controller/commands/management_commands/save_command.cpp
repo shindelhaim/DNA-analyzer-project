@@ -1,9 +1,6 @@
 #include <stdexcept>
-#include "sstream"
-#include <cstdlib>
 #include "save_command.h"
 #include "../../../Model/DB_DNA_sequence.h"
-#include "../../../Model/DNA_meta_data.h"
 #include "../../../View/writer/file_writer.h"
 #include "../../utils.h"
 
