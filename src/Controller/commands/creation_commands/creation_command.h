@@ -5,6 +5,7 @@
 class CreationCommand: public Command
 {
 public:
+    /* virtual */ ~CreationCommands() = 0;
     /* virtual */ void initParams(const ParserParams& params) = 0;
 };
 
