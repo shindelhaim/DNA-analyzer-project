@@ -6,7 +6,8 @@
 class Reader: public IReader
 {
 public:
-    std::string read() const;
+    /* virtual */ ~Reader() = 0;
+    /* virtual */ std::string read() const;
 
 protected:
     std:: string m_data;
