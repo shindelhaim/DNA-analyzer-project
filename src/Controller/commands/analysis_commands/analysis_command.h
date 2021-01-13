@@ -6,6 +6,7 @@
 class AnalysisCommand: public Command
 {
 public:
+    /* virtual */ ~AnalysisCommands() = 0;
     /* virtual */ void initParams(const ParserParams& params) = 0;
 };
 
